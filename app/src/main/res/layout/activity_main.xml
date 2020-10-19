@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/colorPrimaryDark"
+        android:title="Quick Scanner"
+        android:titleTextColor="#ffffff"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                
+                <ImageButton
+                    android:id="@+id/share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_capture"
+                    android:src="@drawable/ic_baseline_share_24"
+                    android:padding="10dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"/>
+                <ImageButton
+                    android:id="@+id/pdf_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_capture"
+                    android:src="@drawable/ic_baseline_picture_as_pdf_24"
+                    android:padding="10dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"/>
+                <ImageButton
+                    android:id="@+id/search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_capture"
+                    android:src="@drawable/ic_baseline_search_24"
+                    android:padding="10dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OCR Text"
+                android:textSize="20sp"
+                android:layout_margin="10dp"
+                android:textColor="@color/colorPrimaryDark"/>
+            <EditText
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="This is OCR extracted text"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:background="#FFFFFF"/>
+            <Button
+                android:id="@+id/select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="select image"
+                android:background="#00008B"
+                android:textColor="#ffffff"
+                android:layout_gravity="center"
+                android:paddingHorizontal="10dp"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Image preview"
+                android:textSize="20sp"
+                android:layout_margin="10dp"
+                android:textColor="@color/colorPrimaryDark"/>
+            <ImageButton
+                android:id="@+id/cam_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_photo_camera_24"
+                android:background="@drawable/custom_capture"
+                android:padding="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"/>
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:background="#FFFFFF"/>
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
+
