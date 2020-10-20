@@ -7,12 +7,12 @@
     android:background="#F5F5F5"
     android:orientation="vertical"
     tools:context=".MainActivity">
-    <Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="@color/colorPrimaryDark"
-        android:title="Quick Scanner"
-        android:titleTextColor="#ffffff"/>
+<!--    <Toolbar-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:background="@color/colorPrimaryDark"-->
+<!--        android:title="Quick Scanner"-->
+<!--        android:titleTextColor="#ffffff"/>-->
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -34,6 +34,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/custom_capture"
                     android:src="@drawable/ic_baseline_share_24"
+                    android:tint="@android:color/holo_blue_dark"
                     android:padding="10dp"
                     android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"/>
@@ -43,6 +44,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/custom_capture"
                     android:src="@drawable/ic_baseline_picture_as_pdf_24"
+                    android:tint="@android:color/holo_blue_dark"
                     android:padding="10dp"
                     android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"/>
@@ -52,6 +54,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/custom_capture"
                     android:src="@drawable/ic_baseline_search_24"
+                    android:tint="@android:color/holo_blue_dark"
                     android:padding="10dp"
                     android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"/>
@@ -78,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="select image"
-                android:background="#00008B"
+                android:background="@drawable/btn"
                 android:textColor="#ffffff"
                 android:layout_gravity="center"
                 android:paddingHorizontal="10dp"
