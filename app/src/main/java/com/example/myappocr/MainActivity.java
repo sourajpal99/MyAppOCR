@@ -173,8 +173,8 @@ public class MainActivity extends AppCompatActivity {
                 .setActivityMenuIconColor(getResources().getColor(R.color.colorAccent))
 //                .setBackgroundColor(getResources().getColor(android.R.color.white))
 //                .setActivityTitle("")
-                .setFixAspectRatio(true)
-                .setAspectRatio(1, 1)
+//                 .setFixAspectRatio(true)
+//                 .setAspectRatio(1, 1)
                 .start(this);
     }
 
