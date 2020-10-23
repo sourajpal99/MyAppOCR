@@ -11,10 +11,13 @@ import android.app.SearchManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.pdf.PdfDocument;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.SparseArray;
 import android.view.View;
 import android.webkit.PermissionRequest;
@@ -34,6 +37,9 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.BreakIterator;
 import java.util.List;
 
@@ -51,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int IMG_CODE = 5;
     private static final int REQUEST_CAM=7;
     private static final int STORAGE_REQUEST_CODE = 10;
-
+    private final String directory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/myCamera/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -143,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
                 selectImage();
             }
         });
+
     }
 
     @Override
@@ -178,6 +185,29 @@ public class MainActivity extends AppCompatActivity {
                 .start(this);
     }
 
+    public void convertButton(View view){
+        String file = directory + "imageName";
+        Bitmap bitmap = BitmapFactory.decodeFile(file);
+
+        PdfDocument pdfDocument = new PdfDocument();                        //image dimension
+        PdfDocument.PageInfo myPageInfo = new PdfDocument.PageInfo.Builder(960,1280,1).create();
+        PdfDocument.Page page = pdfDocument.startPage(myPageInfo);
+
+        page.getCanvas().drawBitmap(bitmap,0,0, null);
+        pdfDocument.finishPage(page);
+
+        String pdfFile = directory + "/myPDFFile.pdf";
+        File myPDFFile = new File(pdfFile);
+
+        try {
+            pdfDocument.writeTo(new FileOutputStream(myPDFFile));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        pdfDocument.close();
+
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -193,7 +223,8 @@ public class MainActivity extends AppCompatActivity {
                     .setAutoZoomEnabled(true)
                     .setGuidelines(CropImageView.Guidelines.ON)
                     .start(MainActivity.this);
-        } else if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+        }
+        else if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult uri = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK) {
                 preview.setImageURI(uri.getUri());
@@ -218,7 +249,8 @@ public class MainActivity extends AppCompatActivity {
                     result.setText(stringBuilder.toString());
 
 
-                } else {
+                }
+                else {
                     Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_LONG).show();
                 }
             }
