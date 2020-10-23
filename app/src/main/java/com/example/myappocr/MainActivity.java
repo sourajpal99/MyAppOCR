@@ -227,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
         else if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult uri = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK) {
-                preview.setImageURI(uri.getUri());
+                preview.setImageURI(uri.getUri()); //here is the image
 
                 BitmapDrawable bitmapDrawable = (BitmapDrawable) preview.getDrawable();
                 Bitmap bitmap = bitmapDrawable.getBitmap();
